@@ -1,1 +1,15 @@
-<p>repo-list works!</p>
+<div class="repo-list">
+  <h3>Repositories</h3>
+  <div class="repos">
+    <div *ngFor="let repo of repos" class="repo-card">
+      <h4><a [href]="repo.html_url" target="_blank">{{ repo.name }}</a></h4>
+      <p *ngIf="repo.description" class="description">{{ repo.description }}</p>
+      <div class="repo-stats">
+        <span *ngIf="repo.language" class="language">{{ repo.language }}</span>
+        <span class="stars">⭐ {{ repo.stargazers_count }}</span>
+        <span class="forks">🍴 {{ repo.forks_count }}</span>
+      </div>
+      <p class="updated">Updated {{ repo.updated_at | date:'mediumDate' }}</p>
+    </div>
+  </div>
+</div>
