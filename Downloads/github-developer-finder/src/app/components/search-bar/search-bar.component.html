@@ -1,0 +1,10 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    [(ngModel)]="username" 
+    (keyup.enter)="onSearch()" 
+    placeholder="Search GitHub username..." 
+    class="search-input"
+  />
+  <button (click)="onSearch()" class="search-btn">Search</button>
+</div>
