@@ -2,6 +2,10 @@
   <h1>{{ title }}</h1>
   <app-search-bar (search)="onSearch($event)"></app-search-bar>
   <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-  <app-user-profile *ngIf="user" [user]="user"></app-user-profile>
-  <app-repo-list *ngIf="repos.length > 0" [repos]="repos"></app-repo-list>
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="loading"></div>
+    <p>Searching GitHub...</p>
+  </div>
+  <app-user-profile *ngIf="user && !isLoading" [user]="user"></app-user-profile>
+  <app-repo-list *ngIf="repos.length > 0 && !isLoading" [repos]="repos"></app-repo-list>
 </div>
